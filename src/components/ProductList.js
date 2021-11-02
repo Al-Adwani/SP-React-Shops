@@ -3,8 +3,9 @@ import { useState } from "react";
 import ProductModal from "./ProductModal";
 import { observer } from "mobx-react";
 import { Form, Row, Stack } from "react-bootstrap";
+import shopStore from "../stores/shopStore";
 
-function ProductList({ products }) {
+function ProductList({products}) {
   const [query, setQuery] = useState("");
 
   const productList = products
@@ -22,7 +23,7 @@ function ProductList({ products }) {
           placeholder="Search for product by name"
           onChange={(event) => setQuery(event.target.value)}
         />
-        <ProductModal />
+        <ProductModal products={shopStore.product} />
       </Stack>
 
       <Row>{productList}</Row>

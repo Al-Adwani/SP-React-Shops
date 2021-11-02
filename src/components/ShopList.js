@@ -22,6 +22,7 @@ function ShopList() {
           onChange={(event) => setQuery(event.target.value)}
         />
         <ShopModal />
+        
       </Stack>
 
       <Row>{shopList}</Row>

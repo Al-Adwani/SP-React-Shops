@@ -14,7 +14,7 @@ class ShopStore {
       for (const key in newShop) {
         formData.append(key, newShop[key]);
       }
-      const response = await instance.post("/shops", formData);
+      const response = await instance.post("/:shopId/products", formData);
       this.shops.push(response.data);
     } catch (error) {
       console.log(
@@ -26,7 +26,7 @@ class ShopStore {
 
   fetchShops = async () => {
     try {
-      const response = await instance.get("/products");
+      const response = await instance.get("/shops");
       this.shops = response.data;
     } catch (error) {
       console.log("ShopStore -> fetchShops -> error", error);
